@@ -1,7 +1,6 @@
 package com.patternbuilder.p_sha.patternbuilder.logic;
 
-import android.widget.TextView;
-
+import com.patternbuilder.p_sha.patternbuilder.ui.ItemFood;
 import com.patternbuilder.p_sha.patternbuilder.core.Item;
 
 import java.util.ArrayList;
@@ -23,15 +22,9 @@ public class Meal {
         return cost;
     }
 
-    public void showItems(TextView textView) {
-        //TODO вместо textview сделать listview, чтобы выводило все элементы, а не только последний
-        for (Item item : list) {
-            System.out.print("Item : " + item.name());
-            System.out.print(", Packing : " + item.packing().pack());
-            System.out.println(", Price : " + item.price());
-            textView.setText("Item : " + item.name()
-                    + ", Packing : " + item.packing().pack()
-                    + ", Price : " + item.price());
+    public void showList(List<ItemFood> listFood) {
+        for (int i = 0; i < list.size(); i++) {
+            listFood.add(new ItemFood(list.get(i).name(), list.get(i).packing().pack(), list.get(i).price()));
         }
     }
 
